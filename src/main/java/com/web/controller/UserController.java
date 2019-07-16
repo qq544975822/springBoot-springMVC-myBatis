@@ -1,7 +1,7 @@
 package com.web.controller;
 
-import com.web.dao.UserDao;
 import com.web.domain.User;
+import com.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +16,11 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
     @RequestMapping(value = "/user")
     public String userTest(Model model){
-        List<User> all = userDao.findAll();
+        List<User> all = userService.findAll();
         model.addAttribute("all",all);
         System.out.println(all);
         return "index";
