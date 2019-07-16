@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/3.4.1/css/bootstrap.min.css}">
+    <script th:src="@{webjars/jquery/1.12.4/jquery.min.js}"></script>
+</head>
+<body>
+<p th:text="${all}"></p>
+<table>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="user:${all}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.userPassword}"></td>
+        <td>
+            <a href="#">编辑</a>|
+            <a href="#">编辑</a>|<a th:href="'deleteById/' + ${user.id}">删除</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
